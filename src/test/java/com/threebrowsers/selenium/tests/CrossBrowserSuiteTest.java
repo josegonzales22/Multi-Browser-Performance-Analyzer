@@ -91,11 +91,11 @@ public class CrossBrowserSuiteTest extends BaseTest {
     }
     /**/
 
-    /*/
+    /**/
     @Test
     @Order(5)
-    @DisplayName("Safari remoto (VM)")
-    void testInSafariVM() throws InterruptedException {
+    @DisplayName("Safari remoto")
+    void testInSafari() throws InterruptedException {
         runRemoteTest();
     }
     /**/    
@@ -130,17 +130,17 @@ public class CrossBrowserSuiteTest extends BaseTest {
     }
 
     private void runRemoteTest() throws InterruptedException {
-        currentBrowser = "safari_vm";
+        currentBrowser = "safari_cloud";
         BaseDriver driverManager = new RemoteDriverManager();
 
         try {
             driver = driverManager.createDriver();
             String baseUrl = remoteConfig.get("base.url");
-            StepsFlow steps = new StepsFlow(driver, "safari_vm", test);
+            StepsFlow steps = new StepsFlow(driver, "safari_cloud", test);
 
             steps.executeFlow(baseUrl);
         } catch (Exception e) {
-            test.fail("[ERROR] Error en Safari remoto (VM): " + e.getMessage());
+            test.fail("[ERROR] Error en Safari remoto : " + e.getMessage());
             throw e;
         }
     }
