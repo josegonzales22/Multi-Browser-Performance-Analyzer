@@ -23,6 +23,7 @@
         <junit.jupiter.version>5.11.0</junit.jupiter.version>
         <extentreports.version>5.1.1</extentreports.version>
         <commons.io.version>2.16.1</commons.io.version>
+        <aspectj.version>1.9.25.1</aspectj.version>
     </properties>
 
     <dependencies>
@@ -80,6 +81,12 @@
             <artifactId>commons-math3</artifactId>
             <version>3.6.1</version>
         </dependency>
+        <!-- AspectJ Weaver (requerido para anotaciones personalizadas) -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -107,8 +114,11 @@
                     </includes>
                     <useSystemClassLoader>true</useSystemClassLoader>
                     <testFailureIgnore>false</testFailureIgnore>
-                    <!-- Forzar JVM UTF-8 en entornos CI/CD -->
-                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <!-- Carga del agente AspectJ + UTF-8 -->
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        -Dfile.encoding=UTF-8
+                    </argLine>
                 </configuration>
             </plugin>
         </plugins>
