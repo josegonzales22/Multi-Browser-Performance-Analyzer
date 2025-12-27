@@ -2,9 +2,11 @@
 
 ### Performance & Load Testing Template
 
-Framework base para la medición de rendimiento web con ejecución multinavegador, soporte para ejecución local y remota, y generación automática de reportes HTML con métricas de tiempos de carga y dashboards.
+Framework base para la medición de rendimiento web con ejecución multinavegador, soporte para ejecución local y remota,
+y generación automática de reportes HTML con métricas de tiempos de carga y dashboards.
 
-Este proyecto sirve como template inicial para construir una arquitectura limpia y escalable de análisis de performance con Selenium WebDriver + JUnit 5 + Maven, especialmente enfocada en Single Page Applications (SPA).
+Este proyecto sirve como template inicial para construir una arquitectura limpia y escalable de análisis de performance
+con Selenium WebDriver + JUnit 5 + Maven, especialmente enfocada en Single Page Applications (SPA).
 
 ---
 
@@ -22,14 +24,14 @@ Este proyecto sirve como template inicial para construir una arquitectura limpia
 
 ## 🧩 Tecnologías Usadas
 
-| Tecnología | Versión | Uso |
-|-----------|---------|-----|
-| Selenium WebDriver | 4.25.0 | Automatización web |
-| JUnit Jupiter | 5.11.0 | Estructura de tests |
-| WebDriverManager | 5.9.2 | Gestión de drivers |
-| ExtentReports | 5.1.1 | Reportes HTML |
-| Jackson Databind | 2.18.0 | Manejo de JSON |
-| Maven | - | Build Management |
+| Tecnología         | Versión | Uso                 |
+|--------------------|---------|---------------------|
+| Selenium WebDriver | 4.25.0  | Automatización web  |
+| JUnit Jupiter      | 5.11.0  | Estructura de tests |
+| WebDriverManager   | 5.9.2   | Gestión de drivers  |
+| ExtentReports      | 5.1.1   | Reportes HTML       |
+| Jackson Databind   | 2.18.0  | Manejo de JSON      |
+| Maven              | -       | Build Management    |
 
 ---
 
@@ -41,19 +43,17 @@ Para ejecutar todos los tests de performance:
 mvn clean test
 ```
 
-
 ## 🌐 Navegadores Soportados
 
-| Navegador | Local | CI/CD (Remote) | Notas |
-|:--- |:---:|:---:|:---|
-| Chrome | ✔️ | ✔️ | Soporte total |
-| Edge | ✔️ | ✔️ | Soporte total |
-| Firefox | ✔️ | ✔️ | Soporte total |
-| Safari | ✔️ | ✔️ | Local solo en macOS |
+| Navegador | Local | CI/CD (Remote) | Notas               |
+|:----------|:-----:|:--------------:|:--------------------|
+| Chrome    |  ✔️   |       ✔️       | Soporte total       |
+| Edge      |  ✔️   |       ✔️       | Soporte total       |
+| Firefox   |  ✔️   |       ✔️       | Soporte total       |
+| Safari    |  ✔️   |       ✔️       | Local solo en macOS |
 
-Nota: Safari y otros navegadores pueden ejecutarse en CI/CD mediante proveedores remotos como Selenium Grid, BrowserStack o LambdaTest.
-
-
+Nota: Safari y otros navegadores pueden ejecutarse en CI/CD mediante proveedores remotos como Selenium Grid,
+BrowserStack o LambdaTest.
 
 ## 📄 Reportes HTML (ExtentReports)
 
@@ -64,10 +64,10 @@ Los reportes se generan automáticamente en:
 ```
 
 Métricas incluidas:
+
 * Dashboard General de performance.
 * Métricas de Tiempos por página.
 * Estadísticas: Mínimo, Máximo, Mediana y Percentil 95.
-
 
 ## ⚙️ Configuración del Proyecto
 
@@ -75,11 +75,18 @@ Métricas incluidas:
 * UTF-8 forzado para compatibilidad en logs.
 * Perfiles Maven: Configurados para diferenciar entornos Windows y macOS (Safari).
 
-
 ## ⭐ Conclusión
 
-Template moderno y robusto para QA Performance, ideal para monitoreo de tiempos de carga e integración continua en pipelines.
+Template moderno y robusto para QA Performance, ideal para monitoreo de tiempos de carga e integración continua en
+pipelines.
 
 ## Licencia
 
 Este proyecto utiliza la [Licencia MIT](https://opensource.org/licenses/MIT).
+
+## Disclaimer
+
+La aplicación web utilizada en los ejemplos de este
+proyecto [angular-dashboard-lime.vercel.app](https://angular-dashboard-lime.vercel.app) pertenece
+a [Zoaib Khan](https://www.youtube.com/@ZoaibKhan). Se utiliza exclusivamente con fines educativos, demostrativos y para
+prácticas de automatización.
