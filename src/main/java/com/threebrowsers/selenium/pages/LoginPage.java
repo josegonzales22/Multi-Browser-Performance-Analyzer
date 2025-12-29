@@ -1,6 +1,9 @@
 package com.threebrowsers.selenium.pages;
 
-import org.openqa.selenium.*;
+import com.threebrowsers.selenium.utils.Logs;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
 
@@ -18,7 +21,7 @@ public class LoginPage extends BasePage {
 
     public void loadPage(String url) {
         driver.get(url);
-        System.out.println("[INFO] Página cargada: " + driver.getTitle());
+        Logs.info("Página cargada: " + driver.getTitle());
         waitVisible(By.tagName("body"));
     }
 
@@ -26,18 +29,18 @@ public class LoginPage extends BasePage {
         WebElement input = waitVisible(userInput);
         input.clear();
         input.sendKeys(username);
-        System.out.println("[INFO] Nombre de usuario ingresado: " + username);
+        Logs.info("Nombre de usuario ingresado: " + username);
     }
 
     public void enterPassword(String password) {
         WebElement input = waitVisible(pswInput);
         input.clear();
         input.sendKeys(password);
-        System.out.println("[INFO] Contraseña ingresada");
+        Logs.info("Contraseña ingresada");
     }
 
     public void clickLogin() {
         safeClick(logInButton);
-        System.out.println("[INFO] Botón de inicio de sesión clickeado.");
+        Logs.info("Botón de inicio de sesión clickeado.");
     }
 }

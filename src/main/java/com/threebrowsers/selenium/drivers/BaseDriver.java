@@ -1,6 +1,7 @@
 package com.threebrowsers.selenium.drivers;
 
 import org.openqa.selenium.WebDriver;
+
 import java.time.Duration;
 
 public abstract class BaseDriver {
