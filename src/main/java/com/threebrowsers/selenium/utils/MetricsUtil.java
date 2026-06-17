@@ -1,6 +1,7 @@
 package com.threebrowsers.selenium.utils;
 
 import org.apache.commons.math3.stat.descriptive.rank.Percentile;
+
 import java.util.ArrayList;
 import java.util.List;
 
