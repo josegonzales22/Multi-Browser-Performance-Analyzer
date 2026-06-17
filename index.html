@@ -60,7 +60,7 @@
             const files = await response.json();
 
             const reportes = files.filter(file =>
-                file.name.startsWith("ExecutionReport_") && file.name.endsWith(".html")
+                file.name.startsWith("ExecutionReport_")
             );
 
             if (reportes.length === 0) {
@@ -74,7 +74,7 @@
 
             statusText.innerText = "Reporte encontrado. Redirigiendo...";
 
-            window.location.href = ultimoReporte.path;
+            window.location.href = `${FOLDER}/${ultimoReporte.name}`;
 
         } catch (error) {
             console.error(error);
