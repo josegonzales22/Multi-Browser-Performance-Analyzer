@@ -6,41 +6,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MetricsUtil {
+    private static final ThreadLocal<List<Long>> tiemposThreadLocal = ThreadLocal.withInitial(ArrayList::new);
 
-    private static final List<Long> tiempos = new ArrayList<>();
+    private static List<Long> getTiempos() {
+        return tiemposThreadLocal.get();
+    }
 
     public static void addTime(long time) {
-        tiempos.add(time);
+        getTiempos().add(time);
     }
 
     public static List<Long> getTimes() {
-        return new ArrayList<>(tiempos);
+        return new ArrayList<>(getTiempos());
     }
 
-    // --- Mínimo ---
     public static long getMin() {
+        List<Long> tiempos = getTiempos();
         if (tiempos.isEmpty()) return 0;
         return tiempos.stream().min(Long::compare).orElse(0L);
     }
 
-    // --- Máximo ---
     public static long getMax() {
+        List<Long> tiempos = getTiempos();
         if (tiempos.isEmpty()) return 0;
         return tiempos.stream().max(Long::compare).orElse(0L);
     }
 
-    // --- Percentil 95 ---
     public static double getP95() {
         return getPercentile(95);
     }
 
-    // --- Mediana (Percentil 50) ---
     public static double getMedian() {
         return getPercentile(50);
     }
 
-    // --- Método privado genérico para percentiles ---
     private static double getPercentile(double percentileValue) {
+        List<Long> tiempos = getTiempos();
         if (tiempos.isEmpty()) return 0;
 
         double[] values = tiempos.stream()
@@ -54,8 +55,7 @@ public class MetricsUtil {
         return Math.round(result * 100.0) / 100.0;
     }
 
-    // --- Limpieza de métricas ---
     public static void reset() {
-        tiempos.clear();
+        tiemposThreadLocal.remove();
     }
 }
