@@ -7,12 +7,12 @@ import org.openqa.selenium.WebDriver;
 public class LoginSteps extends BaseSteps {
     private final LoginPage loginPage;
 
-    public LoginSteps(WebDriver driver, String browserName, ExtentTest test) {
-        super(driver, browserName, test);
+    public LoginSteps(WebDriver driver, String executionIdentifier, ExtentTest test) {
+        super(driver, executionIdentifier, test);
         this.loginPage = new LoginPage(driver);
     }
 
-    public void execute(String baseUrl) throws InterruptedException {
+    public void execute(String baseUrl) {
         measureAndLogPageLoad(
                 "loginPage_loaded",
                 "Login page loaded and displayed",
@@ -21,14 +21,11 @@ public class LoginSteps extends BaseSteps {
         );
 
         loginPage.enterUsername("zoaib@zoaibkhan.com");
-        Thread.sleep(1000);
         loginPage.enterPassword("testing123");
-        Thread.sleep(1000);
         loginPage.clickLogin();
-        Thread.sleep(2000);
 
         assertAndLogPerformanceMetrics();
 
-        logPassWithScreenshot("login_completed", "Full business and performance scenario passed in " + browserName.toUpperCase());
+        logPassWithScreenshot("login_completed", "Login flow completed successfully in " + executionIdentifier.toUpperCase());
     }
 }
